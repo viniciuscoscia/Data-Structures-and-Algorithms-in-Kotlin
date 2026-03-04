@@ -25,27 +25,41 @@
  *   s does not contain '"' or '\\'.
  */
 class ReverseOnlyLetters {
+//    Your core insight was correct, but the implementation added accidental complexity. The cleaner version solves the same problem more clearly. Think of it as: "find the next letter on each side, swap, repeat."
     fun reverseOnlyLetters(s: String): String {
-        var reverse = CharArray(s.length)
+        val reverse = CharArray(s.length)
         var left = 0
+        var right = s.length - 1
 
-        for (right in s.length - 1 downTo 0) {
-            println(right)
+        while (left < s.length) {
+            val currentCharacter = s[left]
+
+            if (currentCharacter.isLetter()) {
+                if (s[right].isLetter() && reverse[right].code == 0) { // Colocar no right index se não for local para caractere especial
+                    reverse[right] = currentCharacter
+                    left++
+                    right--
+                } else { // Pular
+                    right--
+                }
+            } else { // Colocar no left index
+                reverse[left] = currentCharacter
+                left++
+            }
         }
 
         return reverse.concatToString()
     }
 
     private fun Char.isLetter(): Boolean {
-        val digitToInt = this.digitToInt()
-        return (digitToInt in 101..<133) || (digitToInt in 141..172)
+        return (code in 65.. 90) || (code in 97..122)
     }
 }
 
 fun main() {
     val solution = ReverseOnlyLetters()
 
-    // Test 1: Basic with single separator
+//     Test 1: Basic with single separator
     val result1 = solution.reverseOnlyLetters("ab-cd")
     println("Test 1: Expected \"dc-ba\", Got \"$result1\" - ${if (result1 == "dc-ba") "PASS" else "FAIL"}")
 
