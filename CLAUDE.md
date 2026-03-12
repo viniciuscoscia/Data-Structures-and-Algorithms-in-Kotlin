@@ -28,7 +28,9 @@ kotlinc src/FileName.kt -include-runtime -d build/filename.jar && java -jar buil
 
 ## Solution & Test Pattern
 
-Each solution file contains only the solution class (no `main`). Test cases live exclusively in the corresponding test file.
+- Each solution file contains only the solution class (no `main`). Test cases live exclusively in the corresponding test file.
+- **When adding a new challenge, never implement the solution.** Create the solution file with a `TODO()` body and create the test file with all test cases.
+- Every test must print the input and result using `contentToString()` for arrays or string interpolation for primitives/strings.
 
 Solution structure:
 ```kotlin
@@ -37,7 +39,7 @@ Solution structure:
  */
 class SolutionName {
     fun solve(input: Type): ReturnType {
-        // implementation
+        TODO()
     }
 }
 ```
@@ -53,7 +55,12 @@ class SolutionNameTest {
 
     @Test
     fun `descriptive scenario and expected outcome`() {
-        assertEquals(expected, solution.solve(input))
+        val input = ...
+        val expected = ...
+        println("Input: $input")
+        val result = solution.solve(input)
+        println("Expected: $expected | Got: $result")
+        assertEquals(expected, result)
     }
 }
 ```
