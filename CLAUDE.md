@@ -6,81 +6,68 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository captures Kotlin and supporting Java implementations of algorithmic exercises. Contributions should remain small, testable, and easy to run from IntelliJ IDEA or the command line.
 
-**Project Type**: IntelliJ IDEA project without build tool (no Gradle/Maven). Uses kotlinc and javac directly.
+**Project Type**: IntelliJ IDEA project without build tool (no Gradle/Maven). Uses `kotlinc`/`javac` directly. Dependencies (Kotlin runtime, JUnit Jupiter 6.0.3) are resolved from the local Maven repository via `.idea/libraries/`.
 
-## Project Structure & Module Organization
-- `src/` contains independent problem solutions; each Kotlin file typically exposes one `main` entry for ad-hoc verification.
-- Keep any new utilities collocated with the problem they support to avoid implicit shared state.
-- IDE metadata (`.idea/`, `DataStructuresAndAlgorithmsKotlin.iml`) should only change when you intend to update project settings.
+## Project Structure
 
-## Build, Test, and Development Commands
+- `src/` — solution files; one class per file, named after the problem in `PascalCase`
+- `src/test/kotlin/` — JUnit 5 test files; one test class per solution, named `<ClassName>Test.kt`
+- `.idea/libraries/` — library descriptors pointing to `~/.m2` for Kotlin runtime and JUnit Jupiter
 
-### Command-Line Compilation and Execution
-Each Kotlin file can be compiled and run independently using kotlinc:
+## Running Tests
+
+Tests are run from IntelliJ IDEA (no build tool CLI available):
+- **Single test class**: Right-click `<ClassName>Test.kt` → Run `<ClassName>Test`
+- **All tests**: Right-click `src/test/kotlin/` → Run All Tests
+- **Single test method**: Click the gutter icon next to a `@Test` function
+
+To compile and run a solution's `main` for quick ad-hoc checks:
 ```bash
-# Pattern for any Kotlin solution file
 kotlinc src/FileName.kt -include-runtime -d build/filename.jar && java -jar build/filename.jar
-
-# Examples
-kotlinc src/AnswerQueries.kt -include-runtime -d build/answer-queries.jar && java -jar build/answer-queries.jar
-kotlinc src/MinimumValueToGetPositiveStepByStepSum.kt -include-runtime -d build/min-value.jar && java -jar build/min-value.jar
 ```
 
-For Java files:
-```bash
-javac -d build/classes src/Main.java && java -cp build/classes Main
-```
+## Solution & Test Pattern
 
-### IntelliJ IDEA Workflow (Recommended)
-- Create per-file run configurations targeting each file's `main` function for faster iteration
-- Right-click on a Kotlin file → Run 'FileNameKt' to execute the embedded test harness
-- The project uses JDK with Kotlin runtime library attached (see DataStructuresAndAlgorithmsKotlin.iml)
+Each solution file contains only the solution class (no `main`). Test cases live exclusively in the corresponding test file.
 
-## Documentation & Testing Pattern
-Each solution file follows a consistent pattern:
-1. **KDoc header**: Comprehensive problem statement with constraints and worked examples
-2. **Solution class**: Single class containing the algorithmic solution
-3. **Test harness in main()**: At least 6-10 deterministic test cases with PASS/FAIL output
-
-Example structure:
+Solution structure:
 ```kotlin
 /**
- * Problem Title
- *
- * Full problem description...
- * Examples with explanations...
+ * Problem title and full description, constraints, and worked examples.
  */
 class SolutionName {
     fun solve(input: Type): ReturnType {
         // implementation
     }
 }
+```
 
-fun main() {
-    val solution = SolutionName()
+Test structure:
+```kotlin
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
-    // Test case 1: Description
-    val result1 = solution.solve(input1)
-    println("Test 1: Expected X, Got $result1 - ${if (result1 == X) "PASS" else "FAIL"}")
-    // ... more test cases
+class SolutionNameTest {
+
+    private val solution = SolutionName()
+
+    @Test
+    fun `descriptive scenario and expected outcome`() {
+        assertEquals(expected, solution.solve(input))
+    }
 }
 ```
 
-When a solution is pending, leave `TODO` markers but keep the annotated tests for validation.
+- Use `assertArrayEquals()` for array results; verify in-place mutations by checking the array contents after the call
+- Aim for 6–10 tests per solution: happy path, edge cases, boundaries, no-result scenarios
+- Use backtick test names that read as plain English
 
-## Coding Style & Naming Conventions
-- Use 4-space indentation and follow Kotlin coding conventions (immutable vals by default, expression bodies where appropriate).
-- Match class/file names to challenge titles in `PascalCase`; helpers stay `camelCase`.
-- Keep functions pure when possible and document non-trivial complexity decisions with a one-line comment.
+## Coding Conventions
 
-## Testing Guidelines
-- Each file contains its own test harness in the `main` function with console output showing PASS/FAIL
-- Tests use inline assertions like `${if (result == expected) "PASS" else "FAIL"}`
-- For array comparisons, use `.contentEquals()` and `.contentToString()`
-- Always validate the complete `main` harness end-to-end before committing
-- For structured tests outside of main, place suites under `src/test/kotlin` using JUnit 5 or Kotest (update build instructions if adding test frameworks)
+- 4-space indentation; `val` by default; expression bodies where they improve readability
+- Helpers stay `camelCase` and should be `private` inside the solution class
+- Document non-trivial complexity trade-offs with a one-line comment
 
-## Commit & Pull Request Guidelines
-- Follow the observed short, sentence-cased commit format (e.g., `Add MinimumValueToGetPositiveStepByStepSum`).
-- Describe problem statements, key optimizations, and any runtime or memory trade-offs in the PR body.
-- Link issues when applicable and mention new commands, configuration tweaks, or follow-up tasks that reviewers should note.
+## Commit Format
+
+Short, sentence-cased messages: `Add ReverseOnlyLetters solution`, `Fix MinimumValueToGetPositiveStepByStepSum test case`.
