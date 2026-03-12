@@ -29,6 +29,20 @@
  */
 class ReversePrefix {
     fun reversePrefix(word: String, ch: Char): String {
-        TODO()
+        var right = 0
+        while (right < word.length) {
+            if (word[right] == ch) {
+                val stringBuilder = buildString {
+                    (right downTo 0).forEach { index ->
+                        append(word[index])
+                    }
+                }
+
+                return stringBuilder + word.substring(right + 1, word.length)
+            }
+            right++
+        }
+
+        return word
     }
 }
