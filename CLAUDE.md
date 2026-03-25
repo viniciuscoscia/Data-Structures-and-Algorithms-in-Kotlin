@@ -6,25 +6,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository captures Kotlin and supporting Java implementations of algorithmic exercises. Contributions should remain small, testable, and easy to run from IntelliJ IDEA or the command line.
 
-**Project Type**: IntelliJ IDEA project without build tool (no Gradle/Maven). Uses `kotlinc`/`javac` directly. Dependencies (Kotlin runtime, JUnit Jupiter 6.0.3) are resolved from the local Maven repository via `.idea/libraries/`.
+**Project Type**: Gradle project with Kotlin DSL. Dependencies managed via `build.gradle.kts`.
 
 ## Project Structure
 
-- `src/` — solution files; one class per file, named after the problem in `PascalCase`
+- `src/main/kotlin/` — solution files; one class per file, named after the problem in `PascalCase`
 - `src/test/kotlin/` — JUnit 5 test files; one test class per solution, named `<ClassName>Test.kt`
-- `.idea/libraries/` — library descriptors pointing to `~/.m2` for Kotlin runtime and JUnit Jupiter
+- `build.gradle.kts` — Gradle build config (Kotlin 2.1.21, JUnit Jupiter 5.11.4)
 
 ## Running Tests
 
-Tests are run from IntelliJ IDEA (no build tool CLI available):
+**All tests (CLI):**
+```bash
+./gradlew test
+```
+
+**From IntelliJ IDEA:**
 - **Single test class**: Right-click `<ClassName>Test.kt` → Run `<ClassName>Test`
 - **All tests**: Right-click `src/test/kotlin/` → Run All Tests
 - **Single test method**: Click the gutter icon next to a `@Test` function
-
-To compile and run a solution's `main` for quick ad-hoc checks:
-```bash
-kotlinc src/FileName.kt -include-runtime -d build/filename.jar && java -jar build/filename.jar
-```
 
 ## Solution & Test Pattern
 

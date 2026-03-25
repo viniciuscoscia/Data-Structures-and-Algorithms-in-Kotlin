@@ -2,7 +2,7 @@
  * Answer Queries About Sum of Elements
  *
  * Given an array nums, a 2D array queries where queries[i] = [xi, yi], and an integer limit,
- * return a boolean array answer where answer[i] is true if the sum of nums[xi..yi] < limit.
+ * return a boolean array answer where answer[i] is true if the sum of nums (xi..yi) < limit.
  *
  * Complexity: O(n + q) time — O(n) to build prefix sums, O(q) to answer queries; O(n) space for prefix array.
  */

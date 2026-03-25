@@ -44,7 +44,7 @@
  * Complexity: O(n) time, O(1) space
  */
 
-internal class RemoveDuplicatesFromSortedArrayII {
+class RemoveDuplicatesFromSortedArrayII {
     fun removeDuplicates(nums: IntArray): Int {
         if (nums.isEmpty()) {
             return 0
