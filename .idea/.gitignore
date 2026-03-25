@@ -1,8 +1,19 @@
-# Default ignored files
-/shelf/
+# User-specific
 /workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
+/tasks.xml
+/usage.statistics.xml
+/dictionaries/
+/shelf/
+
+# Sensitive or local
 /dataSources/
 /dataSources.local.xml
+/sqlDataSources.xml
+/dynamic.xml
+/uiDesigner.xml
+
+# Editor-based HTTP Client
+/httpRequests/
+
+# AWS
+/aws.xml
