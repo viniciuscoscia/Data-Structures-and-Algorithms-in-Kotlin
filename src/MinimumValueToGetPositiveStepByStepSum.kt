@@ -29,6 +29,7 @@
  * Example 3:
  * Input: nums = [1,-2,-3]
  * Output: 5
+ * Complexity: O(n) time, O(1) space
  */
 class MinimumValueToGetPositiveStepByStepSum {
     fun minStartValue(nums: IntArray): Int {

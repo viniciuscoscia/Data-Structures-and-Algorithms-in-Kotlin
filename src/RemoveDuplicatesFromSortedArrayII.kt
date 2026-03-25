@@ -41,6 +41,7 @@
  * -104 <= nums[i] <= 104
  * nums is sorted in non-decreasing order.
  *
+ * Complexity: O(n) time, O(1) space
  */
 
 internal class RemoveDuplicatesFromSortedArrayII {

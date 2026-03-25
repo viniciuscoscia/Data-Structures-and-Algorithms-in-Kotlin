@@ -26,6 +26,7 @@
  * Hint: Since both arrays are sorted, consider using two pointers to traverse
  * them simultaneously without extra space. At each step, advance the pointer
  * that points to the smaller value.
+ * Complexity: O(m + n) time, O(1) space — m and n are the lengths of nums1 and nums2
  */
 class MinimumCommonValue {
     fun getCommon(nums1: IntArray, nums2: IntArray): Int {

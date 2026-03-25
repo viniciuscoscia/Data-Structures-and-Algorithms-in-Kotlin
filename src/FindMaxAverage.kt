@@ -21,6 +21,7 @@
  * n == nums.length
  * 1 <= k <= n <= 105
  * -104 <= nums[i] <= 104
+ * Complexity: O(n) time, O(1) space
  */
 
 class FindMaxAverage {

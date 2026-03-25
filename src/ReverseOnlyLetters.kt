@@ -23,6 +23,7 @@
  *   1 <= s.length <= 100
  *   s consists of characters with ASCII values in the range [33, 122].
  *   s does not contain '"' or '\\'.
+ * Complexity: O(n) time, O(n) space — result is built into a new CharArray
  */
 class ReverseOnlyLetters {
 //    Your core insight was correct, but the implementation added accidental complexity. The cleaner version solves the same problem more clearly. Think of it as: "find the next letter on each side, swap, repeat."

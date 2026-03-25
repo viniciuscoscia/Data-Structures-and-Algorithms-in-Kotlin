@@ -13,6 +13,7 @@
  * Example 1: target = 7, nums = [2,3,1,2,4,3] → 2  ([4,3])
  * Example 2: target = 4, nums = [1,4,4]        → 1  ([4])
  * Example 3: target = 11, nums = [1,1,1,1,1,1,1,1] → 0
+ * Complexity: O(n) time, O(1) space — each element visited at most twice (once by right, once by left)
  */
 class MinimumSizeSubarraySum {
     fun minSubArrayLen(target: Int, nums: IntArray): Int {

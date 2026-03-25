@@ -20,6 +20,7 @@
  * 1 <= nums.length <= 105
  * nums[i] is either 0 or 1.
  * 0 <= k <= nums.length
+ * Complexity: O(n) time, O(1) space
  */
 
 class MaxConsecutiveOnesIII {

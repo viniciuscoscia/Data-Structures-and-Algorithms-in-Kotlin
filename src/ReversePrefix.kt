@@ -26,6 +26,7 @@
  *   ch is a lowercase English letter.
  *
  * @see <a href="https://leetcode.com/problems/reverse-prefix-of-word/">LeetCode 2000</a>
+ * Complexity: O(n) time, O(n) space — new string constructed for the result
  */
 class ReversePrefix {
     fun reversePrefix(word: String, ch: Char): String {

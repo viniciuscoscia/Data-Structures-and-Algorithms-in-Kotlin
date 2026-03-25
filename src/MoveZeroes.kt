@@ -23,6 +23,7 @@ import kotlin.math.exp
  * Follow-up: Could you minimize the total number of operations done?
  *
  * @see <a href="https://leetcode.com/problems/move-zeroes/">LeetCode 283</a>
+ * Complexity: O(n) time, O(1) space — in-place single pass
  */
 class MoveZeroes {
     fun moveZeroes(nums: IntArray) {
