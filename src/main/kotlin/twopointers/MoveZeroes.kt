@@ -1,6 +1,5 @@
 package twopointers
 
-import kotlin.math.exp
 
 /**
  * 283. Move Zeroes

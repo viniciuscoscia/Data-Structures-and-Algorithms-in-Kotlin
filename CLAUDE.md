@@ -107,7 +107,8 @@ Solutions should reflect interview-style algorithmic thinking, not production co
 
 When the user asks for tips, feedback, or a review on their solution:
 - **Do not show code.** Give feedback in plain English only.
-- Describe what to change and why, not how to write it.
+- Describe what the problem is and why it matters — not how to fix it.
+- This also applies to `// TODO` comments left in solution files: name the issue, not the solution.
 
 ## Commit Format
 

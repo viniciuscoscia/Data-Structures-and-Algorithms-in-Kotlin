@@ -51,6 +51,7 @@ package arrays
  * @see <a href="https://leetcode.com/problems/rotate-array/">LeetCode 189</a>
  */
 class RotateArray {
+    // TODO (Rank 2) — Violates the in-place constraint: extra arrays are allocated, so space is O(n) instead of O(1).
     fun rotate(nums: IntArray, k: Int) {
         if (nums.size < 2) return // Nothing to rotate
 

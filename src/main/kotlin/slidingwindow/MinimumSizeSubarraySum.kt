@@ -34,33 +34,3 @@ class MinimumSizeSubarraySum {
         return if (minLength == Int.MAX_VALUE) 0 else minLength
     }
 }
-
-private fun minSubArrayLenLegacy(target: Int, nums: IntArray): Int {
-    var minLength = Int.MAX_VALUE
-    var left = 0
-    var right = 0
-    var sum = 0
-
-    while(right < nums.size) {
-        while (sum < target && right < nums.size) {
-            sum += nums[right]
-            right++
-        }
-
-        while (sum >= target) {
-            val len = right - left
-            if (len < minLength) {
-                minLength = len
-            }
-
-            sum -= nums[left]
-            left++
-        }
-    }
-
-    return if (minLength == Int.MAX_VALUE) {
-        0
-    } else {
-        minLength
-    }
-}
