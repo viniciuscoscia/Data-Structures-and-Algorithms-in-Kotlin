@@ -44,32 +44,3 @@ class MinimumValueToGetPositiveStepByStepSum {
         return -minValue + 1
     }
 }
-
-fun main() {
-    val solution = MinimumValueToGetPositiveStepByStepSum()
-
-    // Test case 1: Example 1 from problem description
-    val result1 = solution.minStartValue(nums = intArrayOf(-3, 2, -3, 4, 2))
-    println("Test 1: Expected 5, Got $result1 - ${if (result1 == 5) "PASS" else "FAIL"}")
-
-    // Test case 2: Example 2 from problem description
-    val result2 = solution.minStartValue(nums = intArrayOf(1, 2))
-    println("Test 2: Expected 1, Got $result2 - ${if (result2 == 1) "PASS" else "FAIL"}")
-
-    // Test case 3: Example 3 from problem description
-    val result3 = solution.minStartValue(nums = intArrayOf(1, -2, -3))
-    println("Test 3: Expected 5, Got $result3 - ${if (result3 == 5) "PASS" else "FAIL"}")
-
-    // Test case 4: All positive numbers
-    val result4 = solution.minStartValue(nums = intArrayOf(1, 2, 3, 4))
-    println("Test 4: Expected 1, Got $result4 - ${if (result4 == 1) "PASS" else "FAIL"}")
-
-    // Test case 5: Single negative number
-    val result5 = solution.minStartValue(nums = intArrayOf(-5))
-    println("Test 5: Expected 6, Got $result5 - ${if (result5 == 6) "PASS" else "FAIL"}")
-
-    // Test case 6: Large negative sum
-    val result6 = solution.minStartValue(nums = intArrayOf(-10, 5, -8, 3))
-    println("Test 6: Expected 11, Got $result6 - ${if (result6 == 11) "PASS" else "FAIL"}")
-}
-

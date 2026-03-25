@@ -92,39 +92,3 @@ class MajorityElement {
         }
     }
 }
-
-fun main() {
-    val solution = MajorityElement()
-
-    data class TestCase(val name: String, val nums: IntArray, val expected: Int)
-
-    val testCases = listOf(
-        TestCase("Example 1", intArrayOf(3, 2, 3), 3),
-        TestCase("Example 2", intArrayOf(2, 2, 1, 1, 1, 2, 2), 2),
-        TestCase("Single element", intArrayOf(1), 1),
-        TestCase("All same", intArrayOf(5, 5, 5, 5), 5),
-        TestCase("Majority first", intArrayOf(1, 1, 2), 1),
-        TestCase("Negative numbers", intArrayOf(-1, -1, -1, 2, 2), -1),
-        TestCase("Large majority", intArrayOf(7, 7, 7, 7, 3), 7),
-        TestCase("Exact threshold", intArrayOf(1, 2, 1, 2, 1), 1),
-        TestCase("Two elements", intArrayOf(3, 3), 3),
-        TestCase("Zero as majority", intArrayOf(0, 0, 0, 1, 2), 0),
-    )
-
-    val approaches: List<Pair<String, (IntArray) -> Int>> = listOf(
-        "HashMap (early exit)" to solution::majorityElement,
-        "Boyer-Moore Voting" to solution::majorityElementBoyerMoore,
-        "Sorting" to solution::majorityElementSorting,
-        "Randomized" to solution::majorityElementRandomized,
-    )
-
-    for ((approachName, solve) in approaches) {
-        println("=== $approachName ===")
-        for ((i, tc) in testCases.withIndex()) {
-            val result = solve(tc.nums.copyOf())
-            val status = if (result == tc.expected) "PASS" else "FAIL"
-            println("Test ${i + 1} (${tc.name}): Expected ${tc.expected}, Got $result - $status")
-        }
-        println()
-    }
-}

@@ -55,27 +55,3 @@ class FindMaxAverage {
         return average
     }
 }
-
-fun main() {
-    val solution = FindMaxAverage()
-
-    // Test case 1: Example from problem
-    val result1 = solution.findMaxAverage(nums = intArrayOf(1, 12, -5, -6, 50, 3), k = 4)
-    println("Test 1: Expected 12.75000, Got $result1")
-
-    // Test case 2: Single element
-    val result2 = solution.findMaxAverage(nums = intArrayOf(5), k = 1)
-    println("Test 2: Expected 5.00000, Got $result2")
-
-    // Test case 3: All same elements
-    val result3 = solution.findMaxAverage(nums = intArrayOf(3, 3, 3, 3, 3), k = 3)
-    println("Test 3: Expected 3.00000, Got $result3")
-
-    // Test case 4: Negative numbers
-    val result4 = solution.findMaxAverage(nums = intArrayOf(-1, -2, -3, -4, -5), k = 2)
-    println("Test 4: Expected -1.50000, Got $result4")
-
-    // Test case 5: k equals array length
-    val result5 = solution.findMaxAverage(nums = intArrayOf(1, 2, 3, 4), k = 4)
-    println("Test 5: Expected 2.50000, Got $result5")
-}

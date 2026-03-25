@@ -63,26 +63,3 @@ class RotateArray {
         }
     }
 }
-
-fun main() {
-    val solution = RotateArray()
-
-    // Test 1: Example 1 from problem
-    val nums1 = intArrayOf(1, 2, 3, 4, 5, 6, 7)
-//   k = 12 val nums1 = intArrayOf(1, 2, 3, 4, 5, 6, 7)
-    val expected1 = intArrayOf(5, 6, 7, 1, 2, 3, 4)
-    solution.rotate(nums1, 3)
-    println("Test 1: Expected ${expected1.contentToString()}, Got ${nums1.contentToString()} - ${if (nums1.contentEquals(expected1)) "PASS" else "FAIL"}")
-
-    // Test 2: Example 2 from problem
-    val nums2 = intArrayOf(-1, -100, 3, 99)
-    val expected2 = intArrayOf(3, 99, -1, -100)
-    solution.rotate(nums2, 2)
-    println("Test 2: Expected ${expected2.contentToString()}, Got ${nums2.contentToString()} - ${if (nums2.contentEquals(expected2)) "PASS" else "FAIL"}")
-
-    // Test 3: Single element with k > array size
-    val nums3 = intArrayOf(-1)
-    val expected3 = intArrayOf(-1)
-    solution.rotate(nums3, 2)
-    println("Test 3: Expected ${expected3.contentToString()}, Got ${nums3.contentToString()} - ${if (nums3.contentEquals(expected3)) "PASS" else "FAIL"}")
-}
