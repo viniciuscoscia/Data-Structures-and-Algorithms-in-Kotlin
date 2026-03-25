@@ -1,3 +1,5 @@
+package twopointers
+
 /**
  * 2540. Minimum Common Value
  *

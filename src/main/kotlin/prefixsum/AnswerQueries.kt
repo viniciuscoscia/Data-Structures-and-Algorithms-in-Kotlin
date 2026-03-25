@@ -1,3 +1,5 @@
+package prefixsum
+
 /**
  * Answer Queries About Sum of Elements
  *

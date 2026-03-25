@@ -10,9 +10,23 @@ This repository captures Kotlin and supporting Java implementations of algorithm
 
 ## Project Structure
 
-- `src/main/kotlin/` — solution files; one class per file, named after the problem in `PascalCase`
-- `src/test/kotlin/` — JUnit 5 test files; one test class per solution, named `<ClassName>Test.kt`
-- `build.gradle.kts` — Gradle build config (Kotlin 2.1.21, JUnit Jupiter 5.11.4)
+Solutions are organised by technique into packages. Each package lives under both `src/main/kotlin/` and `src/test/kotlin/`:
+
+| Package | Techniques |
+|---|---|
+| `twopointers` | Two Pointers |
+| `slidingwindow` | Sliding Window |
+| `prefixsum` | Prefix Sum |
+| `arrays` | General array problems |
+
+Future packages to add as needed: `hashmaps`, `linkedlists`, `trees`, `binarysearch`, `dp`, etc.
+
+**Rules:**
+- Place each new solution in the package that matches its primary technique
+- Both the solution file and its test file must declare the same package (e.g. `package twopointers`)
+- File is named `PascalCase.kt`; test file is named `PascalCaseTest.kt`
+
+- `build.gradle.kts` — Gradle build config
 
 ## Running Tests
 
@@ -34,6 +48,8 @@ This repository captures Kotlin and supporting Java implementations of algorithm
 
 Solution structure:
 ```kotlin
+package twopointers // use the appropriate package
+
 /**
  * Problem title and full description, constraints, and worked examples.
  */
@@ -46,6 +62,8 @@ class SolutionName {
 
 Test structure:
 ```kotlin
+package twopointers // must match the solution's package
+
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

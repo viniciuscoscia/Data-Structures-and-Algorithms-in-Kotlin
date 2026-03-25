@@ -1,3 +1,5 @@
+package arrays
+
 /**
  * 169. Majority Element
  *
