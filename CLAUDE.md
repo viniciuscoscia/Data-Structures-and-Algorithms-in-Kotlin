@@ -69,11 +69,27 @@ class SolutionNameTest {
 - Aim for 6–10 tests per solution: happy path, edge cases, boundaries, no-result scenarios
 - Use backtick test names that read as plain English
 
+## Solution Style
+
+Solutions should reflect interview-style algorithmic thinking, not production code:
+
+- Prioritize clarity of logic over abstraction or extensibility
+- Use straightforward imperative or functional approaches that make the algorithm obvious
+- Avoid over-engineering: no design patterns, no unnecessary abstractions, no dependency injection
+- Variable names should be descriptive but concise (`left`, `right`, `freq`, `maxLen`)
+- Inline logic where it aids readability; extract helpers only when they reduce duplication significantly
+- Add a one-line comment for non-trivial complexity trade-offs (e.g., `// O(n) time, O(1) space`)
+
 ## Coding Conventions
 
 - 4-space indentation; `val` by default; expression bodies where they improve readability
 - Helpers stay `camelCase` and should be `private` inside the solution class
-- Document non-trivial complexity trade-offs with a one-line comment
+
+## Reviewing & Giving Tips
+
+When the user asks for tips, feedback, or a review on their solution:
+- **Do not show code.** Give feedback in plain English only.
+- Describe what to change and why, not how to write it.
 
 ## Commit Format
 
