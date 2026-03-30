@@ -30,6 +30,15 @@ package hashmaps
  */
 class TwoSum {
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        TODO()
+        val existingNumbers = mutableMapOf<Int, Int>()
+        nums.forEachIndexed { index, value ->
+            if (existingNumbers.containsKey(target - value)) {
+                return intArrayOf(existingNumbers[target - value]!!, index)
+            } else {
+                existingNumbers[value] = index
+            }
+        }
+
+        return intArrayOf(0, 0)
     }
 }
