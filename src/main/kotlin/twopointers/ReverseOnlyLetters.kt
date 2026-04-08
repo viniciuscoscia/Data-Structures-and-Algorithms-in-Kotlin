@@ -28,7 +28,6 @@ package twopointers
  * Complexity: O(n) time, O(n) space — result is built into a new CharArray
  */
 class ReverseOnlyLetters {
-    // TODO (Rank 3) — Fragile logic: relies on the default zero-value of CharArray as a sentinel to track
     // written positions. Also contains Portuguese comments that should be in English.
     fun reverseOnlyLetters(s: String): String {
         val reverse = CharArray(s.length)

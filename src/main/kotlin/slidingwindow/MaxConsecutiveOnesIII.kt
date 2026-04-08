@@ -26,7 +26,6 @@ package slidingwindow
  */
 
 class MaxConsecutiveOnesIII {
-    // TODO (Rank 4) — `count` is redundant: the window size can be derived from existing variables.
     fun longestOnes(nums: IntArray, k: Int): Int {
         var leftIndex = 0
         var rightIndex = 0
